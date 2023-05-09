@@ -30,6 +30,8 @@ createApp({
     data(){
         return{
             imgCorrente: 0,
+            titoloCorrente: 0,
+            testoCorrente: 0,
 
              slides:[
                 {
@@ -60,5 +62,21 @@ createApp({
             ],
         };
     },
+    methods:{
+        precedenteSlide(){
+            console.log("precedente");
+            this.imgCorrente--;
+            this.titoloCorrente--;
+            this.testoCorrente--;
+        },
+        prossimaSlide(){
+            console.log("prossima");
+            this.imgCorrente++;
+            this.titoloCorrente++;
+            this.testoCorrente++;
+
+        },
+
+    }
    
 }).mount(`#app`)
