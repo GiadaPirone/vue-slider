@@ -17,16 +17,16 @@
         <div class="container">
             <div class="slider-wrapper">
                 <div class="item">
-                    <img :src="slides[0]" alt="">
+                    <img :src="slides.image" alt="">
                 </div>
                 <div class="text"> 
-                    <h3>{{titoli[0]}}</h3>
+                    <h3>{{slides.title}}</h3>
                     <p>{{testi[0]}}</p>
                 </div>
             </div>
 
             <div class="thumb">
-                <template v-for="anteprima in slides">
+                <template v-for="anteprima in slides.image">
                     <img :src="anteprima" alt="" :class="item">
                 </template>
 
