@@ -30,8 +30,6 @@ createApp({
     data(){
         return{
             imgCorrente: 0,
-            titoloCorrente: 0,
-            testoCorrente: 0,
 
              slides:[
                 {
@@ -63,20 +61,34 @@ createApp({
         };
     },
     methods:{
-        precedenteSlide(){
-            console.log("precedente");
-            this.imgCorrente--;
-            this.titoloCorrente--;
-            this.testoCorrente--;
-        },
         prossimaSlide(){
             console.log("prossima");
             this.imgCorrente++;
-            this.titoloCorrente++;
-            this.testoCorrente++;
-
+            if(this.imgCorrente > 4){
+                this.imgCorrente = 0;
+            }
+            
+        },
+        
+        precedenteSlide(){
+            console.log("precedente");
+            this.imgCorrente--;
+            if(this.imgCorrente < 0){
+                // this.imgCorrente == this.slides.image.length-1;
+               this.imgCorrente = 4;
+                
+            };
         },
 
+        classiAnteprime(indice){
+            let classiAttive = "thumb active";
+            let classe = "thumb";
+            if(this.imgCorrente == indice ){
+                return classiAttive
+            } else{
+                return classe
+            }
+        }
     }
    
 }).mount(`#app`)

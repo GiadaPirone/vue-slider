@@ -21,32 +21,17 @@
                 <div class="item">
                     <img :src="slides[imgCorrente].image" alt="">
                     <div class="text"> 
-                        <h3>{{slides[titoloCorrente].title}}</h3>
-                        <p>{{slides[testoCorrente].text}}</p>
+                        <h3>{{slides[imgCorrente].title}}</h3>
+                        <p>{{slides[imgCorrente].text}}</p>
                     </div>
                 </div>
             </div>
 
             <div class="thumbs">
-                <div class="prev" @click="pracedenteSlide()"></div>
+                <div class="prev" @click="precedenteSlide()"></div>
                 <div class="next" @click="prossimaSlide()"></div>
-                <div class="thumb active">
-                    <template v-for="anteprima in slides.image">
-                        <img :src="anteprima" alt="">
-                    </template>
-                    <!-- <img :src="slides[0].image" alt=""> -->
-                </div>
-                <div class="thumb">
-                    <img :src="slides[1].image" alt="">
-                </div>
-                <div class="thumb">
-                    <img :src="slides[2].image" alt="">
-                </div>
-                <div class="thumb">
-                    <img :src="slides[3].image" alt="">
-                </div>
-                <div class="thumb">
-                    <img :src="slides[4].image" alt="">
+                <div v-for="(anteprima,i) in slides " :class="classiAnteprime(i)">
+                    <img :src="anteprima.image" alt="">
                 </div>
             </div>
 
